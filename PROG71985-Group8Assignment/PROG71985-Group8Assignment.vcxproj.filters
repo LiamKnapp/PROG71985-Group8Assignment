@@ -21,6 +21,21 @@
     <ClCompile Include="Structure.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddAppt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayAppts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAppt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchAppt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateAppt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h">

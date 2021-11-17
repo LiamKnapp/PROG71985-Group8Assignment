@@ -139,8 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddAppt.c" />
+    <ClCompile Include="DeleteAppt.c" />
+    <ClCompile Include="DisplayAppts.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="SearchAppt.c" />
     <ClCompile Include="Structure.c" />
+    <ClCompile Include="UpdateAppt.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h" />

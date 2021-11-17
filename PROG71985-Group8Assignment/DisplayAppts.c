@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+#include "Structure.c"
+
+#define _CRT_SECURE_NO_WARNINGS
+#define LINENUM 1
+#define ABORT 0
+#define MAXDAYSINMONTH 30
+
+char AllAppt(Calendar* date) { // displays all appointments
+
+	for (int count = 0; count < MAXDAYSINMONTH; count++) {
+		if (strcmp(date[count].available, "Unavailable") == 0) { // if day has the tag as Unavailable 
+			printf("%s %s %s: %s", date[count].year, date[count].month, date[count].day, date[count].appointment);
+		}
+	}
+	display();// print the display
+	return 0;
+}
+
+char RangeAppt(Calendar* date) { // displays all appointments
+
+	
+	display();// print the display
+	return 0;
+}
+
+char SingleAppt(Calendar* date) { // displays all appointments
+
+	
+
+	display();// print the display
+	return 0;
+}
