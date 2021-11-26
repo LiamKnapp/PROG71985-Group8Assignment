@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #define MAXSIZE 100
+#define MAXROOMS 12
 
 typedef struct {
-	char  day[MAXSIZE];
-	char  month[MAXSIZE];
-	char  year[MAXSIZE];
+	char   roomid[MAXROOMS];
 	char  available[MAXSIZE];
-	char  appointment[MAXSIZE];
-} Calendar;
+	char  firstname[MAXSIZE];
+	char  lastname[MAXSIZE];
+} Room;
