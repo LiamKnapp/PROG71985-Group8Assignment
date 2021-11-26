@@ -19,7 +19,7 @@
 bool continueprogram = true;// loop for the program
 FILE* fp; // declare the file
 
-char display() { // print the display / main menu without the option f
+char display() { // print the display
 	printf("\nTo choose a function, enter its letter label: \n");
 	printf("a) Add a new appt \n");
 	printf("b) Delete an existing appt \n");
@@ -63,7 +63,7 @@ int main(void) {
 		}
 
 		if (Select == 'c') { //  Update and existing appt
-			
+			updateappointment(date);
 		}
 
 		if (Select == 'd') { // Display single appt
@@ -79,7 +79,7 @@ int main(void) {
 		}
 
 		if (Select == 'g') { // Search for appt
-		
+			searchappointment(date);
 		}
 
 		if (Select == 'h') { // Exit the program
@@ -93,7 +93,7 @@ int main(void) {
 			exit(ABORT);
 		}
 		for (count = 0; count < MAXDAYSINMONTH; count++) { // print new information into the file for saving
-			fprintf(fp, "%d %s %s %s\n", count + LINENUM, &date[count].month, &date[count].year, &date[count].appointment);
+			fprintf(fp, "%d %s %s %s %s\n", count + LINENUM, &date[count].month, &date[count].year, &date[count].available, &date[count].appointment);
 		}
 		fclose(fp); // save file by closeing
 	}
