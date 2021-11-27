@@ -144,7 +144,6 @@
     <ClCompile Include="DisplayAppts.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="SearchAppt.c" />
-    <ClCompile Include="Structure.c" />
     <ClCompile Include="UpdateAppt.c" />
   </ItemGroup>
   <ItemGroup>

@@ -1,16 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include "Data.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-
-#include "Structure.c"
 
 #define LINENUM 1
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
-char deleteappointment(Calendar* date) { // books an appointment
+char deleteappointment(P_CALENDAR date) { // books an appointment
 	int  count, input = 0;
 	char appt[MAXSIZE];
 	char monthchoice[100];
@@ -19,6 +18,7 @@ char deleteappointment(Calendar* date) { // books an appointment
 	printf("Type your month now. Remember Capital letters matter: \n");
 	printf("so far we only have November\n");
 	scanf("%s", &monthchoice);
+	fseek(stdin, 0, SEEK_END);
 
 	if (strcmp(monthchoice, "November") == 0) {
 		for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
@@ -30,9 +30,10 @@ char deleteappointment(Calendar* date) { // books an appointment
 
 	printf("\nWhat day would you like to remove a appointment from? type 0 to abort: \n");
 	scanf_s("%d", &input);
+	fseek(stdin, 0, SEEK_END);
 
 	if (input == ABORT) {// abort if user pressed 0
-		display();// print the display
+		fseek(stdin, 0, SEEK_END);
 		return 0;
 	}
 
@@ -41,6 +42,5 @@ char deleteappointment(Calendar* date) { // books an appointment
 	strcpy(date[input - LINENUM].available, "Available"); // make day tag as available
 	printf("\nRoom Listing removed\n");
 
-	display();
 	return 0;
 }

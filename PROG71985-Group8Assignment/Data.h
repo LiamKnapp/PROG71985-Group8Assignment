@@ -1,14 +1,22 @@
 #pragma once
-#include "Structure.c"
+#define MAXSIZE 100
+
+typedef struct calendar {
+	char  day[MAXSIZE];
+	char  month[MAXSIZE];
+	char  year[MAXSIZE];
+	char  available[MAXSIZE];
+	char  appointment[MAXSIZE];
+} CALENDAR, *P_CALENDAR;
 
 //operation functions
-char addappointment(Calendar* date);
-char deleteappointment(Calendar* date);
-char updateappointment(Calendar* date);
-char searchappointment(Calendar* date);
+char addappointment(P_CALENDAR date);
+char deleteappointment(P_CALENDAR date);
+char updateappointment(P_CALENDAR date);
+char searchappointment(P_CALENDAR date);
 
 //display functions
-char display();
-char AllAppt(Calendar* date);
-char RangeAppt(Calendar* date);
-char SingleAppt(Calendar* date);
+void display();
+char AllAppt(P_CALENDAR date);
+char RangeAppt(P_CALENDAR date);
+char SingleAppt(P_CALENDAR date);
