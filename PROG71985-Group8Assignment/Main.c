@@ -35,6 +35,8 @@ int main(void) {
 		while (fscanf(fp, "%s %s %s %s %s", date[count].day, date[count].month, date[count].year, date[count].available, date[count].appointment) != EOF) {
 			count++; // save the file information into the struct
 		}
+
+
 		fclose(fp);
 
 

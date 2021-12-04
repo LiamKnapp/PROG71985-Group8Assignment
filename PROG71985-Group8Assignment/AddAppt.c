@@ -12,21 +12,14 @@
 char addappointment(P_CALENDAR date) { // books an appointment
 	int  count, input = 0;
 	char appt[MAXSIZE];
-	char monthchoice[100];
 
-	printf("What Month would you like to set this appointment for? \n"); // gather what month to add an appointment to
-	printf("type your month now. remember Capital letters matter: \n");
-	printf("so far we only have November\n");
-	scanf("%s", &monthchoice);
 	fseek(stdin, 0, SEEK_END);
 
-	if (strcmp(monthchoice, "November") == 0) {
 		for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
 			if (strcmp(date[count].available, "Available") == 0) {
-				printf("\nDays with no appointments in November are:\n%s", date[count].day);
+				printf("\nDays with no appointments are:\n%s", date[count].day);
 			}
 		}
-	}
 
 	printf("\nWhat day would you like to add a appointment to? type 0 to abort: \n");
 	scanf("%d", &input);
