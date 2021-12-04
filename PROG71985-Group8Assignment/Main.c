@@ -32,10 +32,10 @@ int menuFunction(char Monthchoice[], P_CALENDAR date)
 	char Select = "";
 	int count = 0;
 
-
+	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
 	do
 	{
-		FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
+		
 		if (fp == NULL) { // if error close
 			printf("ERROR");
 			exit(ABORT);
@@ -75,13 +75,13 @@ int menuFunction(char Monthchoice[], P_CALENDAR date)
 
 	} while (Select != 'h');
 
-	fp = fopen("calendar.txt", "w+"); // open the file again for saving
+	fp = fopen(Monthchoice, "w+"); // open the file again for saving
 	if (fp == NULL) { // if error close
 		printf("ERROR");
 		exit(ABORT);
 	}
 	for (count = 0; count < MAXDAYSINMONTH; count++) { // print new information into the file for saving
-		fprintf(fp, "%d %s %d %s %s\n", count + LINENUM, date[count].month, &date[count].year, date[count].available, date[count].appointment);
+		fprintf(fp, "%d %s %d %s %s\n", count + LINENUM, date[count].month, date[count].year, date[count].available, date[count].appointment);
 	}
 	fclose(fp); // save file by closeing
 }
