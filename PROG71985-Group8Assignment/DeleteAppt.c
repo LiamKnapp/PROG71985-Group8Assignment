@@ -40,7 +40,7 @@ char deleteappointment(P_CALENDAR date) { // books an appointment
 
 	strcpy(date[input - LINENUM].appointment, "NA"); // remove the appointment
 	strcpy(date[input - LINENUM].available, "Available"); // make day tag as available
-	printf("\nRoom Listing removed\n");
+	printf("\nBook removed\n");
 
 	return 0;
 }

@@ -10,24 +10,34 @@
 #define MAXDAYSINMONTH 30
 
 int main(void) {
-	char Select;
+	char Select, Monthchoice[MAXSIZE], txt[MAXSIZE] = ".txt";
 	int count = 0;
 
 	bool continueprogram = true;// loop for the program
 	CALENDAR date[MAXSIZE];
 
-	FILE* fp = fopen("calendar.txt", "r"); // read the file with saved data
-	if (fp == NULL) { // if error close
-		printf("ERROR");
-		exit(ABORT);
-	}
-	while (fscanf(fp, "%s %s %s %s %s", date[count].day, date[count].month, date[count].year,date[count].available, date[count].appointment) != EOF) {
-		count++; // save the file information into the struct
-	}
-	fclose(fp);
+	FILE* fp;
+
 
 	do
 	{
+		printf("What month to add/look/change information to?\nRemember capital letters matter: \n");
+		scanf("%s", &Monthchoice); // get the user month choice
+
+		strcat(Monthchoice, txt); // add '.txt' to the end of the user monthchoice
+
+	 fp = fopen(Monthchoice, "r"); // read the file with saved data
+		if (fp == NULL) { // if error close
+			printf("ERROR");
+			exit(ABORT);
+		}
+
+		while (fscanf(fp, "%s %s %s %s %s", date[count].day, date[count].month, date[count].year, date[count].available, date[count].appointment) != EOF) {
+			count++; // save the file information into the struct
+		}
+		fclose(fp);
+
+
 		display();
 
 		scanf("%c", &Select); // get the user selection
