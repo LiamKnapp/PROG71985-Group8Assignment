@@ -18,7 +18,7 @@ char deleteappointment(P_CALENDAR date) { // books an appointment
 	
 		for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
 			if (strcmp(date[count].available, "Unavailable") == 0) {
-				printf("\nDays with appointments are:\n%s", date[count].day);
+				printf("\nDays with appointments are:\n%d", &date[count].day);
 			}
 		}
 

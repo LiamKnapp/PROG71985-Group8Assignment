@@ -32,19 +32,20 @@ int menuFunction(char Monthchoice[], P_CALENDAR date)
 	char Select = "";
 	int count = 0;
 
+	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
+
+	if (fp == NULL) { // if error close
+		printf("ERROR");
+		exit(ABORT);
+	}
+
+	while (fscanf(fp, "%d %s %d %s %s", &date[count].day, &date[count].month, &date[count].year, &date[count].available, &date[count].appointment) != EOF) {
+		count++; // save the file information into the struct
+	}
+	fclose(fp);
 
 	do
 	{
-		FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
-		if (fp == NULL) { // if error close
-			printf("ERROR");
-			exit(ABORT);
-		}
-
-		while (fscanf(fp, "%d %s %d %s %s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
-			count++; // save the file information into the struct
-		}
-
 
 		fclose(fp);
 
@@ -75,7 +76,7 @@ int menuFunction(char Monthchoice[], P_CALENDAR date)
 
 	} while (Select != 'h');
 
-	fp = fopen("calendar.txt", "w+"); // open the file again for saving
+	fp = fopen(Monthchoice, "w+"); // open the file again for saving
 	if (fp == NULL) { // if error close
 		printf("ERROR");
 		exit(ABORT);
