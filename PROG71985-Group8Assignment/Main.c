@@ -78,13 +78,13 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 
 	} while (Select != 'h');
 
-	fp = fopen("calendar.txt", "w+"); // open the file again for saving
+	fp = fopen(Monthchoice, "w+"); // open the file again for saving
 	if (fp == NULL) { // if error close
 		printf("ERROR");
 		exit(ABORT);
 	}
 	for (count = 0; count < MAXDAYSINMONTH; count++) { // print new information into the file for saving
-		fprintf(fp, "%d %s %d %s %s\n", count + LINENUM, date[count].month, &date[count].year, date[count].available, date[count].appointment);
+		fprintf(fp, "%d %s %d %s %s\n", count + LINENUM, date[count].month, date[count].year, date[count].available, date[count].appointment);
 	}
 	fclose(fp); // save file by closeing
 }
@@ -98,5 +98,5 @@ void display() { // print the display
 	printf("e) Display range appt \n");
 	printf("f) Display all appt \n");
 	printf("g) Search for appt \n");
-	printf("h) Exit \n");
+	printf("h) Return to menu \n");
 }
