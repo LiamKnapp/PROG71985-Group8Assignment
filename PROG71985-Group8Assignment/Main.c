@@ -14,17 +14,18 @@ int main(void) {
 
 	bool continueprogram = true;// loop for the program
 	CALENDAR date[MAXSIZE];
+	printf("Welcome to your 2021 appointment manager\n\n");
 
 	do
 	{
-		printf("What month to add/look/change information to?\nRemember capital letters matter: \n");
+		printf("What month would you like to to add/look/change information to?\nRemember capital letters matter: \n");
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 
 		strcat(Monthchoice, txt); // add '.txt' to the end of the user monthchoice
 
 		menuFunction(Monthchoice, date);
-	} while (Monthchoice == 'Exit');
+	} while (Monthchoice != 'Exit');
 }
 
 void menuFunction(char Monthchoice[], P_CALENDAR date)
@@ -57,22 +58,22 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 		if (Select == 'a') // Add a new appt
 			addappointment(date);
 
-		if (Select == 'b') // Delete an existing appt
+		else if (Select == 'b') // Delete an existing appt
 			deleteappointment(date);
 
-		if (Select == 'c') //  Update and existing appt
+		else if (Select == 'c') //  Update and existing appt
 			updateappointment(date);
 
-		if (Select == 'd') // Display single appt
+		else if (Select == 'd') // Display single appt
 			SingleAppt(date);
 
-		if (Select == 'e') //Display range appt
+		else if (Select == 'e') //Display range appt
 			RangeAppt(date);
 
-		if (Select == 'f') // Display all appt
+		else if (Select == 'f') // Display all appt
 			AllAppt(date);
 
-		if (Select == 'g') // Search for appt
+		else if (Select == 'g') // Search for appt
 			searchappointment(date);
 
 	} while (Select != 'h');

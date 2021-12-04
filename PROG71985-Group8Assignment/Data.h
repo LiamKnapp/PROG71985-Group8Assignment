@@ -17,6 +17,7 @@ char searchappointment(P_CALENDAR date);
 
 //display functions
 void display();
+void menuFunction(char Monthchoice[], P_CALENDAR date);
 char AllAppt(P_CALENDAR date);
 char RangeAppt(P_CALENDAR date);
 char SingleAppt(P_CALENDAR date);
