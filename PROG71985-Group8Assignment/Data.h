@@ -2,9 +2,9 @@
 #define MAXSIZE 100
 
 typedef struct calendar {
-	int  day[MAXSIZE];
+	int day;
 	char  month[MAXSIZE];
-	int  year[MAXSIZE];
+	int year;
 	char  available[MAXSIZE];
 	char  appointment[MAXSIZE];
 } CALENDAR, *P_CALENDAR;

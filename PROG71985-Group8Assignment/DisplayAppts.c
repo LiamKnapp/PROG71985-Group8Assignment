@@ -15,7 +15,7 @@ char AllAppt(P_CALENDAR date) { // displays all appointments
 	
 		for (int count = 0; count < MAXDAYSINMONTH; count++) {
 			if (strcmp(date[count].available, "Unavailable") == 0) { // if day has the tag as Unavailable 
-				printf("%d, %s, %d: %s\n", &date[count].year, date[count].month, &date[count].day, date[count].appointment);
+				printf("%d, %s, %d: %s\n", date[count].year, date[count].month, date[count].day, date[count].appointment);
 			}
 		}
 

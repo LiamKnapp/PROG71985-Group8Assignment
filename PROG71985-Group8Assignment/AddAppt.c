@@ -17,12 +17,13 @@ char addappointment(P_CALENDAR date) { // books an appointment
 
 		for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
 			if (strcmp(date[count].available, "Available") == 0) {
-				printf("\nDays with no appointments are:\n%d", &date[count].day);
+				printf("\nDays with no appointments are:\n%d", date[count].day);
 			}
 		}
 
 	printf("\nWhat day would you like to add a appointment to? type 0 to abort: \n");
 	scanf("%d", &input);
+	fseek(stdin, 0, SEEK_END);
 
 	if (input == ABORT) {// abort if user pressed 0
 		fseek(stdin, 0, SEEK_END);
@@ -30,7 +31,7 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	}
 
 	printf("\nEnter your first appointment: \n"); // gather the appointment info
-	fgets(appt, MAXSIZE, stdin);
+	scanf("%s", appt);
 	fseek(stdin, 0, SEEK_END);
 
 	strcpy(date[input - LINENUM].appointment, &appt); // add appointment
