@@ -20,7 +20,6 @@ char searchappointment(P_CALENDAR date);
 
 //display functions
 void display();
-char* makeWordUppercase(char word[]);
 void menuFunction(char Monthchoice[], P_CALENDAR date);
 char AllAppt(P_CALENDAR date);
 char RangeAppt(P_CALENDAR date);

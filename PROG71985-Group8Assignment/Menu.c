@@ -23,6 +23,11 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 			return 0;
 		}
 
+		if (Monthchoice == 'EXIT')
+		{
+			exit(0);
+		}
+
 		while (fscanf(fp, "%d %s %d %s %[^\n]s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
 			count++; // save the file information into the struct
 		}

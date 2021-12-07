@@ -24,7 +24,7 @@ int main(void) {
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 
-		strcat(toupper(Monthchoice), txt); // add '.txt' to the end of the user monthchoice
+		strcat(makeWordUppercase(Monthchoice), txt); // add '.txt' to the end of the user monthchoice
 
 		menuFunction(Monthchoice, date);
 	} while (Monthchoice != 'EXIT');
