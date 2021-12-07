@@ -17,15 +17,22 @@ char searchappointment(P_CALENDAR date) {
 		fseek(stdin, 0, SEEK_END);
 		printf("\n");
 
+		// compare the file with the search the user input
 		for (int count = 0; count < MAXDAYSINMONTH; count++) { 
-			if ((strcmp(date[count].appointment, apptsearch) == 0)) // compare the file with the search the user input
+
+			//if the search is present in the list
+			if ((strcmp(date[count].appointment, apptsearch) == 0) && (strcmp(date[count].available, "Unavailable") == 0)) 
 			{
 				printf("This appointment is on: \n");
 				printf("%d, %s, %d\n", date[count].year, date[count].month, date[count].day);
-				return 0;
+			} 
+
+			//if the search is not in the list
+			if ((strcmp(date[count].appointment, apptsearch) != 0) && (count == MAXDAYSINMONTH -1)) {
+				printf("There is no matching appointment for this month. \n");
 			}
 		}
-		printf("There is no appointment with that name (for this month): \n");
+		
 		return 0;
 
 }
