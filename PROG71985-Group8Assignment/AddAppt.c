@@ -2,6 +2,7 @@
 
 #include "Data.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -39,9 +40,22 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	scanf("%[^\n]s", appt);
 	fseek(stdin, 0, SEEK_END);
 
+	makeWordUppercase(appt);
+
 	strcpy(date[input - LINENUM].appointment, &appt); // add appointment
 	strcpy(date[input - LINENUM].available, "Unavailable"); // make date tag as Unavailable
 	printf("\nbook complete\n");
 
 	return 0;
+}
+
+char* makeWordUppercase(char word[])
+{
+	int length;
+	length = strlen(word);
+
+	for (int i = 0; i < length; i++)
+		word[i] = toupper(word[i]);
+
+	return word;
 }
