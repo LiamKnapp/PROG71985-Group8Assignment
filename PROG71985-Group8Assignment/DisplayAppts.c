@@ -5,10 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
@@ -33,11 +29,18 @@ char RangeAppt(P_CALENDAR date) { // displays a range of appointments
 	int firstDay = 0;
 	int lastDay = 0;
 
-	printf("Please enter the first day of the range: ");
-	scanf("%d", &firstDay);
+	do
+	{
+		fseek(stdin, 0, SEEK_END);
+		printf("Please enter the first day of the range: ");
+	} while ((scanf("%d", &firstDay) != 1) || (firstDay < 0) || (firstDay > MAXDAYSINMONTH));
 	fseek(stdin, 0, SEEK_END);
-	printf("Please enter the last day of the range: ");
-	scanf("%d", &lastDay);
+
+	do
+	{
+		fseek(stdin, 0, SEEK_END);
+		printf("Please enter the last day of the range: ");
+	} while ((scanf("%d", &lastDay) != 1) || (lastDay < 0) || (lastDay > MAXDAYSINMONTH));
 	fseek(stdin, 0, SEEK_END);
 	printf("\n");
 
@@ -52,8 +55,11 @@ char RangeAppt(P_CALENDAR date) { // displays a range of appointments
 char SingleAppt(P_CALENDAR date) { // displays a chosen appointment
 
 	int dayChoice = 0;
-	printf("Please enter the number of the day you would like the appointment displayed for: ");
-	scanf("%d", &dayChoice);
+	do
+	{
+		fseek(stdin, 0, SEEK_END);
+		printf("Please enter the number of the day you would like the appointment displayed for: ");
+	} while ((scanf("%d", &dayChoice) != 1) || (dayChoice < 0) || (dayChoice > MAXDAYSINMONTH));
 	fseek(stdin, 0, SEEK_END);
 	printf("\n");
 

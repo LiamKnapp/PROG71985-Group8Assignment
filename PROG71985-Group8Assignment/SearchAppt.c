@@ -6,17 +6,13 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
 //Group 8
 
 char searchappointment(P_CALENDAR date) {
-
+    fseek(stdin, 0, SEEK_END);
     char apptsearch[MAXSIZE];
 
     printf("Please enter the appointment you would like to find the day for: ");

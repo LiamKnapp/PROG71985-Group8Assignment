@@ -6,29 +6,29 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
 //Group 8
 
 char addappointment(P_CALENDAR date) { // books an appointment
-	int  count, input = 0;
+	int  count, input = 1;
 	char appt[MAXSIZE];
 
 	fseek(stdin, 0, SEEK_END);
 
-		for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
-			if (strcmp(date[count].available, "Available") == 0) {
-				printf("\nDays with no appointments are:\n%d", date[count].day);
-			}
+	for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
+		if (strcmp(date[count].available, "Available") == 0) {
+			printf("\nDays with no appointments are:\n%d", date[count].day);
 		}
+	}
 
-	printf("\nWhat day would you like to add a appointment to? type 0 to abort: \n");
-	scanf("%d", &input);
+	do
+	{
+		fseek(stdin, 0, SEEK_END);
+		printf("\nWhat day would you like to add a appointment to? type 0 to abort: \n");
+	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > MAXDAYSINMONTH));
+
 	fseek(stdin, 0, SEEK_END);
 
 	if (input == ABORT) {// abort if user pressed 0
