@@ -19,7 +19,7 @@ char searchappointment(P_CALENDAR date) {
     char apptsearch[MAXSIZE];
 
     printf("Please enter the appointment you would like to find the day for: ");
-    scanf("%s", &apptsearch); // get the appointment the user is searching for
+    scanf("%[^\n]s", &apptsearch); // get the appointment the user is searching for
     fseek(stdin, 0, SEEK_END);
     printf("\n");
 

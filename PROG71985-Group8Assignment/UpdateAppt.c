@@ -36,7 +36,7 @@ char updateappointment(P_CALENDAR date) {
 	}
 
 	printf("\nEnter your appointment: \n"); // gather the appointment info
-	scanf("%s", appt);
+	scanf("%[^\n]s", appt);
 	fseek(stdin, 0, SEEK_END);
 
 	strcpy(date[input - LINENUM].appointment, &appt); // update the appointment
