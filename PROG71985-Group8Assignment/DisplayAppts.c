@@ -28,7 +28,7 @@ char AllAppt(P_CALENDAR date) { // displays all appointments
 	return 0;
 }
 
-char RangeAppt(P_CALENDAR date) { // displays range of appointments
+char RangeAppt(P_CALENDAR date) { // displays a range of appointments
 
 	int firstDay = 0;
 	int lastDay = 0;
@@ -41,7 +41,7 @@ char RangeAppt(P_CALENDAR date) { // displays range of appointments
 	fseek(stdin, 0, SEEK_END);
 	printf("\n");
 
-	for (int count = 0; count < MAXDAYSINMONTH; count++) {
+	for (int count = 0; count < MAXDAYSINMONTH; count++) {			
 		if (((count + 1 >= firstDay) && (count + 1 <= lastDay)) && (strcmp(date[count].available, "Unavailable") == 0))
 			printf("%d, %s, %d: %s\n", date[count].year, date[count].month, date[count].day, date[count].appointment);
 	}
@@ -49,7 +49,7 @@ char RangeAppt(P_CALENDAR date) { // displays range of appointments
 	return 0;
 }
 
-char SingleAppt(P_CALENDAR date) { // displays single appointment
+char SingleAppt(P_CALENDAR date) { // displays a chosen appointment
 
 	int dayChoice = 0;
 	printf("Please enter the number of the day you would like the appointment displayed for: ");
