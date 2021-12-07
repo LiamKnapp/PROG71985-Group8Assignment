@@ -2,6 +2,7 @@
 
 #include "Data.h"
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -22,10 +23,10 @@ int main(void) {
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 
-		strcat(Monthchoice, txt); // add '.txt' to the end of the user monthchoice
+		strcat(toupper(Monthchoice), txt); // add '.txt' to the end of the user monthchoice
 
 		menuFunction(Monthchoice, date);
-	} while (Monthchoice != 'Exit');
+	} while (Monthchoice != 'EXIT');
 }
 
 void menuFunction(char Monthchoice[], P_CALENDAR date)
