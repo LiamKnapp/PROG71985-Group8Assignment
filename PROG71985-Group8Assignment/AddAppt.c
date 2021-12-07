@@ -2,12 +2,15 @@
 
 #include "Data.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
 #define LINENUM 1
 #define ABORT 0
 #define MAXDAYSINMONTH 30
+
+char* makeWordUppercase(char word[]);
 
 char addappointment(P_CALENDAR date) { // books an appointment
 	int  count, input = 0;
@@ -34,9 +37,22 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	scanf("%s", appt);
 	fseek(stdin, 0, SEEK_END);
 
+	makeWordUppercase(appt);
+
 	strcpy(date[input - LINENUM].appointment, &appt); // add appointment
 	strcpy(date[input - LINENUM].available, "Unavailable"); // make date tag as Unavailable
 	printf("\nbook complete\n");
 
 	return 0;
+}
+
+char* makeWordUppercase(char word[])
+{
+	int length;
+	length = strlen(word);
+
+	for (int i = 0; i < length; i++)
+		word[i] = toupper(word[i]);
+
+	return word;
 }
