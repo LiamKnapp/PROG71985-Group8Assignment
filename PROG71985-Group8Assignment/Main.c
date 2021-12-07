@@ -20,7 +20,7 @@ int main(void) {
 
 	do
 	{
-		printf("What month would you like to to add/look/change information to?\nRemember capital letters matter: \n");
+		printf("What month would you like to to add/look/change information to: \n");
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 

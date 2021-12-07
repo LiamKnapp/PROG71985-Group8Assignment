@@ -20,12 +20,12 @@ char updateappointment(P_CALENDAR date) {
 		}
 	}
 
+
 	do
 	{
 		fseek(stdin, 0, SEEK_END);
 		printf("\nWhat day would you like to update a appointment for? type 0 to abort: \n");
 	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > MAXDAYSINMONTH));
-
 	fseek(stdin, 0, SEEK_END);
 
 	if (input == ABORT) {// abort if user pressed 0
