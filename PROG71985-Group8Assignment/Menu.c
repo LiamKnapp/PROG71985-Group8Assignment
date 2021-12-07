@@ -5,10 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
@@ -22,11 +18,9 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
 	do
 	{
-
-
 		if (fp == NULL) { // if error close
-			printf("ERROR");
-			exit(ABORT);
+			printf("\nERROR INPROPER MONTH NAME\n\n");
+			return 0;
 		}
 
 		while (fscanf(fp, "%d %s %d %s %[^\n]s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
@@ -62,6 +56,10 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 		else if (Select == 'g') // Search for appt
 			searchappointment(date);
 
+		else if (Select == 'i') // Search for appt
+			printf("\nExiting...\n");
+			exit(0);
+
 	} while (Select != 'h');
 
 	fp = fopen(Monthchoice, "w+"); // open the file again for saving
@@ -85,4 +83,5 @@ void display() { // print the display
 	printf("f) Display all appt \n");
 	printf("g) Search for appt \n");
 	printf("h) Return to menu \n");
+	printf("i) Exit the program \n");
 }

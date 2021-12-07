@@ -6,16 +6,14 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
 //Group 8
 
 char searchappointment(P_CALENDAR date) {
+
+    fseek(stdin, 0, SEEK_END);
 
     char apptsearch[MAXSIZE];
 
@@ -25,11 +23,15 @@ char searchappointment(P_CALENDAR date) {
     printf("\n");
 
     for (int count = 0; count < MAXDAYSINMONTH; count++) {
-        if ((strcmp(date[count].appointment, makeWordUppercase(apptsearch)) == 0) && (strcmp(date[count].available, "Unavailable") == 0)) // compare the file with the search the user input
+
+        //if the user search is in the list
+        if ((strcmp(date[count].appointment, makeWordUppercase(apptsearch)) == 0) && (strcmp(date[count].available, "Unavailable") == 0))
         {
             printf("This appointment is on: \n");
             printf("%d, %s, %d\n", date[count].year, date[count].month, date[count].day);
         }
+
+        //if the user list is not in the list
         if ((strcmp(date[count].appointment, makeWordUppercase(apptsearch)) != 0) && (count == MAXDAYSINMONTH - 1)) {
             printf("There is no matching appointment for this month. \n");
         }

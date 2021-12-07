@@ -5,10 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
@@ -24,7 +20,6 @@ char updateappointment(P_CALENDAR date) {
 		}
 	}
 
-
 	printf("\nWhat day would you like to update a appointment for? type 0 to abort: \n");
 	scanf_s("%d", &input);
 	fseek(stdin, 0, SEEK_END);
@@ -38,6 +33,8 @@ char updateappointment(P_CALENDAR date) {
 	printf("\nEnter your appointment: \n"); // gather the appointment info
 	scanf("%[^\n]s", appt);
 	fseek(stdin, 0, SEEK_END);
+
+	makeWordUppercase(appt);
 
 	strcpy(date[input - LINENUM].appointment, &appt); // update the appointment
 	printf("\nAppointment updated\n");

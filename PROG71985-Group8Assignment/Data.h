@@ -1,5 +1,8 @@
 #pragma once
 #define MAXSIZE 100
+#define LINENUM 1
+#define ABORT 0
+#define MAXDAYSINMONTH 31
 
 typedef struct calendar {
 	int day;
@@ -17,6 +20,7 @@ char searchappointment(P_CALENDAR date);
 
 //display functions
 void display();
+char* makeWordUppercase(char word[]);
 void menuFunction(char Monthchoice[], P_CALENDAR date);
 char AllAppt(P_CALENDAR date);
 char RangeAppt(P_CALENDAR date);

@@ -6,10 +6,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define LINENUM 1
-#define ABORT 0
-#define MAXDAYSINMONTH 30
-
 //Liam Knapp, Andrew Stanley
 //PROG71985
 //Group Assignment
@@ -24,7 +20,7 @@ int main(void) {
 
 	do
 	{
-		printf("What month would you like to to add/look/change information to?\nRemember capital letters matter: \n");
+		printf("What month would you like to to add/look/change information to: \n");
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 
