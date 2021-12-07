@@ -9,6 +9,23 @@
 #define MAXDAYSINMONTH 30
 
 char searchappointment(P_CALENDAR date) {
+	 // displays all appointments
+	char apptsearch[MAXSIZE];
 
-	return 0;
+		printf("Please enter the appointment you would like to find the day for: ");
+		scanf("%s", &apptsearch); // get the appointment the user is searching for
+		fseek(stdin, 0, SEEK_END);
+		printf("\n");
+
+		for (int count = 0; count < MAXDAYSINMONTH; count++) { 
+			if ((strcmp(date[count].appointment, apptsearch) == 0)) // compare the file with the search the user input
+			{
+				printf("This appointment is on: \n");
+				printf("%d, %s, %d\n", date[count].year, date[count].month, date[count].day);
+				return 0;
+			}
+		}
+		printf("There is no appointment with that name (for this month): \n");
+		return 0;
+
 }
