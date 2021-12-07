@@ -9,6 +9,11 @@
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
+
 int main(void) {
 	char Monthchoice[MAXSIZE], txt[MAXSIZE] = ".txt";
 
@@ -27,4 +32,3 @@ int main(void) {
 		menuFunction(Monthchoice, date);
 	} while (Monthchoice != 'Exit');
 }
-

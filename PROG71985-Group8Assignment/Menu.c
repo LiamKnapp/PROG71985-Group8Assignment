@@ -9,6 +9,11 @@
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
+
 void menuFunction(char Monthchoice[], P_CALENDAR date)
 {
 	char Select = "";

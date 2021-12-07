@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+
 #include "Data.h"
 #include <stdio.h>
 #include <string.h>
@@ -8,8 +9,13 @@
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
+
 char searchappointment(P_CALENDAR date) {
-	 // displays all appointments
+	 // searches for appointed input by user
 	char apptsearch[MAXSIZE];
 
 		printf("Please enter the appointment you would like to find the day for: ");

@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+
 #include "Data.h"
 #include <stdio.h>
 #include <string.h>
@@ -8,6 +9,10 @@
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
 
 char updateappointment(P_CALENDAR date) {
 	int count, input = 0;
@@ -34,7 +39,7 @@ char updateappointment(P_CALENDAR date) {
 	scanf("%s", appt);
 	fseek(stdin, 0, SEEK_END);
 
-	strcpy(date[input - LINENUM].appointment, &appt); // remove the appointment
+	strcpy(date[input - LINENUM].appointment, &appt); // update the appointment
 	printf("\nAppointment updated\n");
 
 	return 0;

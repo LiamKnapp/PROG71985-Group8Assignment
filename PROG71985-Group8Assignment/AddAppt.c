@@ -9,6 +9,11 @@
 #define ABORT 0
 #define MAXDAYSINMONTH 30
 
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
+
 char addappointment(P_CALENDAR date) { // books an appointment
 	int  count, input = 0;
 	char appt[MAXSIZE];

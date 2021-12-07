@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+
 #include "Data.h"
 #include <stdio.h>
 #include <string.h>
@@ -7,6 +8,11 @@
 #define LINENUM 1
 #define ABORT 0
 #define MAXDAYSINMONTH 30
+
+//Liam Knapp, Andrew Stanley
+//PROG71985
+//Group Assignment
+//Group 8
 
 char AllAppt(P_CALENDAR date) { // displays all appointments
 
@@ -22,7 +28,7 @@ char AllAppt(P_CALENDAR date) { // displays all appointments
 	return 0;
 }
 
-char RangeAppt(P_CALENDAR date) { // displays all appointments
+char RangeAppt(P_CALENDAR date) { // displays range of appointments
 
 	int firstDay = 0;
 	int lastDay = 0;
@@ -43,7 +49,7 @@ char RangeAppt(P_CALENDAR date) { // displays all appointments
 	return 0;
 }
 
-char SingleAppt(P_CALENDAR date) { // displays all appointments
+char SingleAppt(P_CALENDAR date) { // displays single appointment
 
 	int dayChoice = 0;
 	printf("Please enter the number of the day you would like the appointment displayed for: ");
