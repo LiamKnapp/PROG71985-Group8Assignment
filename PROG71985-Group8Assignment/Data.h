@@ -13,17 +13,20 @@ typedef struct calendar {
 } CALENDAR, *P_CALENDAR;
 
 //operation functions
-char addappointment(P_CALENDAR date);
-char deleteappointment(P_CALENDAR date);
-char updateappointment(P_CALENDAR date);
-char searchappointment(P_CALENDAR date);
+char addappointment(P_CALENDAR date, int);
+char deleteappointment(P_CALENDAR date, int);
+char updateappointment(P_CALENDAR date, int);
+char searchappointment(P_CALENDAR date, int);
 
 //display functions
 void display();
 void menuFunction(char Monthchoice[], P_CALENDAR date);
-char AllAppt(P_CALENDAR date);
-char RangeAppt(P_CALENDAR date);
-char SingleAppt(P_CALENDAR date);
+char AllAppt(P_CALENDAR date, int);
+char RangeAppt(P_CALENDAR date, int);
+char SingleAppt(P_CALENDAR date, int);
 
 //clean text functions
-char* makeWordUppercase(char word[]);
+char* formatWordProperly(char word[]);
+
+//Setting days in month
+int setMaxDays(char Monthchoice[]);

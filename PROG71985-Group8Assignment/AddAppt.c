@@ -11,13 +11,13 @@
 //Group Assignment
 //Group 8
 
-char addappointment(P_CALENDAR date) { // books an appointment
+char addappointment(P_CALENDAR date, int maxDays) { // books an appointment
 	int  count, input = 1;
 	char appt[MAXSIZE];
 
 	fseek(stdin, 0, SEEK_END);
 
-	for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
+	for (count = 0; count < maxDays; count++) { //  displays all current days that have no appointment
 		if (strcmp(date[count].available, "Available") == 0) {
 			printf("\nDays with no appointments are:\n%d", date[count].day);
 		}
@@ -27,7 +27,7 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	{
 		fseek(stdin, 0, SEEK_END);
 		printf("\nWhat day would you like to add a appointment to? type 0 to abort: \n");
-	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > MAXDAYSINMONTH));
+	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > maxDays));
 
 	fseek(stdin, 0, SEEK_END);
 
@@ -40,7 +40,7 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	scanf("%[^\n]s", appt);
 	fseek(stdin, 0, SEEK_END);
 
-	makeWordUppercase(appt);
+	formatWordProperly(appt);
 
 	strcpy(date[input - LINENUM].appointment, &appt); // add appointment
 	strcpy(date[input - LINENUM].available, "Unavailable"); // make date tag as Unavailable
@@ -49,13 +49,14 @@ char addappointment(P_CALENDAR date) { // books an appointment
 	return 0;
 }
 
-char* makeWordUppercase(char word[])
+char* formatWordProperly(char word[])
 {
 	int length;
 	length = strlen(word);
 
-	for (int i = 0; i < length; i++)
-		word[i] = toupper(word[i]);
+	word[0] = toupper(word[0]);
+	for (int i = 1; i < length; i++)
+		word[i] = tolower(word[i]);
 
 	return word;
 }

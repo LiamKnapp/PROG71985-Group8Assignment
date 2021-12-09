@@ -10,13 +10,13 @@
 //Group Assignment
 //Group 8
 
-char updateappointment(P_CALENDAR date) {
+char updateappointment(P_CALENDAR date, int maxDays) {
 	int count, input = 0;
 	char appt[MAXSIZE];
 
-	for (count = 0; count < MAXDAYSINMONTH; count++) { //  displays all current days that have no appointment
+	for (count = 0; count < maxDays; count++) { //  displays all current days that have no appointment
 		if (strcmp(date[count].available, "Unavailable") == 0) {
-			printf("\nDays with appointments are:\n%d, %s", date[count].day, date[count].appointment);
+			printf("\nDays with appointments are:\n%d, %s", date[count].day, formatWordProperly(date[count].appointment));
 		}
 	}
 
@@ -24,8 +24,8 @@ char updateappointment(P_CALENDAR date) {
 	do
 	{
 		fseek(stdin, 0, SEEK_END);
-		printf("\nWhat day would you like to update a appointment for? type 0 to abort: \n");
-	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > MAXDAYSINMONTH));
+		printf("\nWhat day would you like to update an appointment for? type 0 to abort: \n");
+	} while ((scanf("%d", &input) != 1) || (input < 0) || (input > maxDays));
 	fseek(stdin, 0, SEEK_END);
 
 	if (input == ABORT) {// abort if user pressed 0
@@ -37,7 +37,7 @@ char updateappointment(P_CALENDAR date) {
 	scanf("%[^\n]s", appt);
 	fseek(stdin, 0, SEEK_END);
 
-	makeWordUppercase(appt);
+	formatWordProperly(appt);
 
 	strcpy(date[input - LINENUM].appointment, &appt); // update the appointment
 	printf("\nAppointment updated\n");

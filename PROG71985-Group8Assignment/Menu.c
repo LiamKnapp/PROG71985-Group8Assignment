@@ -18,15 +18,13 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
 	do
 	{
-		if (fp == NULL) { // if error close
-			printf("\nERROR INPROPER MONTH NAME\n\n");
-			return 0;
+		if  ((fp == NULL) && (strcmp(Monthchoice, "Exit.txt") != 0)) { // if error close
+			printf("\nImproper month name entered\n\n");
+			return;
 		}
 
-		if (Monthchoice == 'EXIT')
-		{
+		if (strcmp(Monthchoice, "Exit.txt") == 0)
 			exit(0);
-		}
 
 		while (fscanf(fp, "%d %s %d %s %[^\n]s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
 			count++; // save the file information into the struct
@@ -35,35 +33,32 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 
 		fclose(fp);
 
+		int maxDays = setMaxDays(Monthchoice);
 
 		display();
 
 		scanf("%c", &Select); // get the user selection
 
 		if (Select == 'a') // Add a new appt
-			addappointment(date);
+			addappointment(date, maxDays);
 
 		else if (Select == 'b') // Delete an existing appt
-			deleteappointment(date);
+			deleteappointment(date, maxDays);
 
 		else if (Select == 'c') //  Update and existing appt
-			updateappointment(date);
+			updateappointment(date, maxDays);
 
 		else if (Select == 'd') // Display single appt
-			SingleAppt(date);
+			SingleAppt(date, maxDays);
 
 		else if (Select == 'e') //Display range appt
-			RangeAppt(date);
+			RangeAppt(date, maxDays);
 
 		else if (Select == 'f') // Display all appt
-			AllAppt(date);
+			AllAppt(date, maxDays);
 
 		else if (Select == 'g') // Search for appt
-			searchappointment(date);
-
-		else if (Select == 'i') // Search for appt
-			printf("\nExiting...\n");
-			exit(0);
+			searchappointment(date, maxDays);
 
 	} while (Select != 'h');
 
@@ -88,5 +83,4 @@ void display() { // print the display
 	printf("f) Display all appt \n");
 	printf("g) Search for appt \n");
 	printf("h) Return to menu \n");
-	printf("i) Exit the program \n");
 }

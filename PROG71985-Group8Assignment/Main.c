@@ -20,13 +20,25 @@ int main(void) {
 
 	do
 	{
-		printf("What month would you like to to add/look/change information to: \n");
+		printf("Please enter the month you would like to to add/look/change information to (Type 'exit' to exit): \n");
 		scanf("%s", Monthchoice); // get the user month choice
 		fseek(stdin, 0, SEEK_END);
 
-		strcat(makeWordUppercase(Monthchoice), txt); // add '.txt' to the end of the user monthchoice
+		strcat(formatWordProperly(Monthchoice), txt); // add '.txt' to the end of the user monthchoice
 
 		menuFunction(Monthchoice, date);
-	} while (Monthchoice != 'EXIT');
+	} while (strcmp(Monthchoice, "Exit.txt") != 0);
+}
+
+int setMaxDays(char Monthchoice[])
+{
+	int maxDays = 0;
+	if (strcmp(Monthchoice, "February.txt") == 0)
+		maxDays = 28;
+	else if ((strcmp(Monthchoice, "April.txt") != 0) || (strcmp(Monthchoice, "June.txt") != 0) || (strcmp(Monthchoice, "Spetember.txt") != 0) || (strcmp(Monthchoice, "November.txt") != 0))
+		maxDays = 30;
+	else
+		maxDays = 31;
+	return maxDays;
 }
 

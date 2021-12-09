@@ -11,7 +11,7 @@
 //Group Assignment
 //Group 8
 
-char searchappointment(P_CALENDAR date) {
+char searchappointment(P_CALENDAR date, int maxDays) {
     fseek(stdin, 0, SEEK_END);
     char apptsearch[MAXSIZE];
 
@@ -20,17 +20,17 @@ char searchappointment(P_CALENDAR date) {
     fseek(stdin, 0, SEEK_END);
     printf("\n");
 
-    for (int count = 0; count < MAXDAYSINMONTH; count++) {
+    for (int count = 0; count < maxDays; count++) {
 
         //if the user search is in the list
-        if ((strcmp(date[count].appointment, makeWordUppercase(apptsearch)) == 0) && (strcmp(date[count].available, "Unavailable") == 0))
+        if ((strcmp(date[count].appointment, formatWordProperly(apptsearch)) == 0) && (strcmp(date[count].available, "Unavailable") == 0))
         {
             printf("This appointment is on: \n");
             printf("%d, %s, %d\n", date[count].year, date[count].month, date[count].day);
         }
 
         //if the user list is not in the list
-        if ((strcmp(date[count].appointment, makeWordUppercase(apptsearch)) != 0) && (count == MAXDAYSINMONTH - 1)) {
+        if ((strcmp(date[count].appointment, formatWordProperly(apptsearch)) != 0) && (count == maxDays - 1)) {
             printf("There is no matching appointment for this month. \n");
         }
     }
