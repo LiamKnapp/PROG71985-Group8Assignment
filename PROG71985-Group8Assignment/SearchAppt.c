@@ -30,8 +30,11 @@ char searchappointment(P_CALENDAR date, int maxDays) {
         }
 
         //if the user list is not in the list
-        if ((strcmp(date[count].appointment, formatWordProperly(apptsearch)) != 0) && (count == maxDays - 1)) {
-            printf("There is no matching appointment for this month. \n");
+        if ((strcmp(date[count].appointment, formatWordProperly(apptsearch)) != 0)) {
+
+            if (count == maxDays - 1) {
+                printf("There is no matching appointment for this month. \n");
+            }
         }
     }
 

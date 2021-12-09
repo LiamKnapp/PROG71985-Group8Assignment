@@ -16,6 +16,7 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 	int count = 0;
 
 	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
+	int maxDays = setMaxDays(Monthchoice);
 	do
 	{
 		if  ((fp == NULL) && (strcmp(Monthchoice, "Exit.txt") != 0)) { // if error close
@@ -26,6 +27,7 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 		if (strcmp(Monthchoice, "Exit.txt") == 0)
 			exit(0);
 
+
 		while (fscanf(fp, "%d %s %d %s %[^\n]s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
 			count++; // save the file information into the struct
 		}
@@ -33,7 +35,6 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 
 		fclose(fp);
 
-		int maxDays = setMaxDays(Monthchoice);
 
 		display();
 
@@ -67,7 +68,7 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 		printf("ERROR");
 		exit(ABORT);
 	}
-	for (count = 0; count < MAXDAYSINMONTH; count++) { // print new information into the file for saving
+	for (count = 0; count < maxDays; count++) { // print new information into the file for saving
 		fprintf(fp, "%d %s %d %s %s\n", count + LINENUM, date[count].month, date[count].year, date[count].available, date[count].appointment);
 	}
 	fclose(fp); // save file by closeing
