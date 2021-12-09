@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "Data.h"
+#include "Menu.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -14,9 +14,9 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 {
 	char Select = "";
 	int count = 0;
+	int maxDays = setMaxDays(Monthchoice);
 
 	FILE* fp = fopen(Monthchoice, "r"); // read the file with saved data
-	int maxDays = setMaxDays(Monthchoice);
 	do
 	{
 		if  ((fp == NULL) && (strcmp(Monthchoice, "Exit.txt") != 0)) { // if error close
@@ -27,14 +27,11 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 		if (strcmp(Monthchoice, "Exit.txt") == 0)
 			exit(0);
 
-
 		while (fscanf(fp, "%d %s %d %s %[^\n]s", &date[count].day, date[count].month, &date[count].year, date[count].available, date[count].appointment) != EOF) {
 			count++; // save the file information into the struct
 		}
 
-
 		fclose(fp);
-
 
 		display();
 

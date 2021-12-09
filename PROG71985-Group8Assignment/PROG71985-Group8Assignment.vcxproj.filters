@@ -36,9 +36,33 @@
     <ClCompile Include="Menu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="extraFunctions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddAppt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAppt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayAppts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchAppt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateAppt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extraFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

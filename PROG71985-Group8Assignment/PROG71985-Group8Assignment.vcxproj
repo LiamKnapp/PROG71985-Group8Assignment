@@ -142,13 +142,21 @@
     <ClCompile Include="AddAppt.c" />
     <ClCompile Include="DeleteAppt.c" />
     <ClCompile Include="DisplayAppts.c" />
+    <ClCompile Include="extraFunctions.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Menu.c" />
     <ClCompile Include="SearchAppt.c" />
     <ClCompile Include="UpdateAppt.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddAppt.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="DeleteAppt.h" />
+    <ClInclude Include="DisplayAppts.h" />
+    <ClInclude Include="extraFunctions.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="SearchAppt.h" />
+    <ClInclude Include="UpdateAppt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

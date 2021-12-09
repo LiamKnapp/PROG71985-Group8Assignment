@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "Data.h"
+#include "AddAppt.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,16 +47,4 @@ char addappointment(P_CALENDAR date, int maxDays) { // books an appointment
 	printf("\nbook complete\n");
 
 	return 0;
-}
-
-char* formatWordProperly(char word[])
-{
-	int length;
-	length = strlen(word);
-
-	word[0] = toupper(word[0]);
-	for (int i = 1; i < length; i++)
-		word[i] = tolower(word[i]);
-
-	return word;
 }
