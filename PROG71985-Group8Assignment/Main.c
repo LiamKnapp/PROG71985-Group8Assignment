@@ -1,3 +1,7 @@
+// Group Assignment - Calendar/ appointment manager
+// PROG71985 - F21
+// Liam Knapp, Andrew Stanley - Group 8 - Dec 2021
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Data.h"
@@ -6,12 +10,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-//Liam Knapp, Andrew Stanley
-//PROG71985
-//Group Assignment
-//Group 8
-
-int main(void) {
+int main(void) {		//WORKED TOGETHER
 	char Monthchoice[MAXSIZE], txt[MAXSIZE] = ".txt";
 
 	bool continueprogram = true;// loop for the program

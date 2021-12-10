@@ -1,3 +1,7 @@
+// Group Assignment - Calendar/ appointment manager
+// PROG71985 - F21
+// Liam Knapp, Andrew Stanley - Group 8 - Dec 2021
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "AddAppt.h"
@@ -6,22 +10,18 @@
 #include <string.h>
 #include <stdbool.h>
 
-//Liam Knapp, Andrew Stanley
-//PROG71985
-//Group Assignment
-//Group 8
-
-char addappointment(P_CALENDAR date, int maxDays) { // books an appointment
+char addappointment(P_CALENDAR date, int maxDays) { // books an appointment		LIAM KNAPP
 	int  count, input = 1;
 	char appt[MAXSIZE];
 
 	fseek(stdin, 0, SEEK_END);
-
+	printf("\nDays with no appointments are: \n");
 	for (count = 0; count < maxDays; count++) { //  displays all current days that have no appointment
 		if (strcmp(date[count].available, "Available") == 0) {
-			printf("\nDays with no appointments are:\n%d", date[count].day);
+			printf("%d ", date[count].day);
 		}
 	}
+	printf("\n");
 
 	do
 	{
