@@ -1,3 +1,7 @@
+// Group Assignment - Calendar/ appointment manager
+// PROG71985 - F21
+// Liam Knapp, Andrew Stanley - Group 8 - Dec 2021
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Menu.h"
@@ -5,12 +9,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-//Liam Knapp, Andrew Stanley
-//PROG71985
-//Group Assignment
-//Group 8
-
-void menuFunction(char Monthchoice[], P_CALENDAR date)
+void menuFunction(char Monthchoice[], P_CALENDAR date)			//WORKED TOGETHER
 {
 	char Select = "";
 	int count = 0;
@@ -73,12 +72,12 @@ void menuFunction(char Monthchoice[], P_CALENDAR date)
 
 void display() { // print the display
 	printf("\nTo choose a function, enter its letter label: \n");
-	printf("a) Add a new appt \n");
-	printf("b) Delete an existing appt \n");
-	printf("c) Update and existing appt \n");
-	printf("d) Display single appt \n");
-	printf("e) Display range appt \n");
-	printf("f) Display all appt \n");
-	printf("g) Search for appt \n");
+	printf("a) Add a new appointment \n");
+	printf("b) Delete an existing appointment \n");
+	printf("c) Update an existing appointment \n");
+	printf("d) Display a single day's appointment \n");
+	printf("e) Display a range of days' appointments \n");
+	printf("f) Display all appointments \n");
+	printf("g) Search for an appointment \n");
 	printf("h) Return to menu \n");
 }
